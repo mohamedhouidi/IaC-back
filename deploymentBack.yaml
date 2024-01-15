@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bnaback
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: bnaback
+   template:
+      metadata:
+         labels:
+            app: bnaback
+      spec:
+         containers:
+            - name: backend
+              image: mohamedhouidi/bnaback
+              ports:
+              - containerPort: 2000
